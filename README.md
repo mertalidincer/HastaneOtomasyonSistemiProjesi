@@ -1,0 +1,2 @@
+# HastaneOtomasyonSistemiProjesi
+ Takim Projesi
