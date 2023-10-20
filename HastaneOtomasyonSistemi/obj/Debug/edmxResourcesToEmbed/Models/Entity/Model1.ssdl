@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneOtomasyonSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TBL_DOKTOR">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="AD" Type="nchar" MaxLength="10" />
+    <Property Name="SOYAD" Type="nchar" MaxLength="10" />
+    <Property Name="POLIKINLIKID" Type="int" Nullable="false" />
+    <Property Name="UNVAN_ID" Type="int" />
+    <Property Name="DOKTORHESAP_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_DOKTOR_UNVAN">
+    <Key>
+      <PropertyRef Name="UNVAN_ID" />
+    </Key>
+    <Property Name="UNVAN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISIM" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_HASTA">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="30" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="30" />
+    <Property Name="DT" Type="date" />
+    <Property Name="TELNO" Type="nchar" MaxLength="11" />
+    <Property Name="SEHIR_ID" Type="int" />
+    <Property Name="HASTA_HESAP_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_HASTA_HESAP">
+    <Key>
+      <PropertyRef Name="HASTA_HESAP_ID" />
+    </Key>
+    <Property Name="HASTA_HESAP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KULLANICI_AD" Type="varchar" MaxLength="30" />
+    <Property Name="SİFRE" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TBL_ISLEM">
+    <Key>
+      <PropertyRef Name="ISLEM_ID" />
+    </Key>
+    <Property Name="ISLEM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISIM" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_KONTROL">
+    <Key>
+      <PropertyRef Name="TETKIK_ID" />
+    </Key>
+    <Property Name="TETKIK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="SOYAD" Type="nchar" MaxLength="10" />
+    <Property Name="DOKTOR" Type="varchar" MaxLength="50" />
+    <Property Name="TARIH" Type="date" />
+    <Property Name="ISLEM_ID" Type="int" />
+    <Property Name="HASTALIKLAR" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'HastaneOtomasyonSistemi.dbo.TBL_PERSONEL_HESAP' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TBL_PERSONEL_HESAP">
+          <Property Name="PERSONEL_HESAP_ID" Type="int" />
+          <Property Name="SIFRE" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="TBL_POLİKİNLİK">
+    <Key>
+      <PropertyRef Name="POLIKINLIK_ID" />
+    </Key>
+    <Property Name="POLIKINLIK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISIM" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_RANDEVU">
+    <Key>
+      <PropertyRef Name="RANDEVU_ID" />
+    </Key>
+    <Property Name="RANDEVU_ID" Type="tinyint" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" />
+    <Property Name="SAAT" Type="time" Precision="7" />
+    <Property Name="POLIKINLIK_ID" Type="int" />
+    <Property Name="HASTAHESAP_ID" Type="int" />
+    <Property Name="DOKTORHESAP_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBL_SEHIR">
+    <Key>
+      <PropertyRef Name="SEHIR_ID" />
+    </Key>
+    <Property Name="SEHIR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISIM" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_SEKRETER">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="50" />
+    <Property Name="SİFRE" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN">
+    <End Role="TBL_DOKTOR_UNVAN" Type="Self.TBL_DOKTOR_UNVAN" Multiplicity="0..1" />
+    <End Role="TBL_DOKTOR" Type="Self.TBL_DOKTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DOKTOR_UNVAN">
+        <PropertyRef Name="UNVAN_ID" />
+      </Principal>
+      <Dependent Role="TBL_DOKTOR">
+        <PropertyRef Name="UNVAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_DOKTOR_TBL_POLİKİNLİK">
+    <End Role="TBL_POLİKİNLİK" Type="Self.TBL_POLİKİNLİK" Multiplicity="1" />
+    <End Role="TBL_DOKTOR" Type="Self.TBL_DOKTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_POLİKİNLİK">
+        <PropertyRef Name="POLIKINLIK_ID" />
+      </Principal>
+      <Dependent Role="TBL_DOKTOR">
+        <PropertyRef Name="POLIKINLIKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_HASTA_TBL_SEHIR">
+    <End Role="TBL_SEHIR" Type="Self.TBL_SEHIR" Multiplicity="0..1" />
+    <End Role="TBL_HASTA" Type="Self.TBL_HASTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SEHIR">
+        <PropertyRef Name="SEHIR_ID" />
+      </Principal>
+      <Dependent Role="TBL_HASTA">
+        <PropertyRef Name="SEHIR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_KONTROL_TBL_ISLEM">
+    <End Role="TBL_ISLEM" Type="Self.TBL_ISLEM" Multiplicity="0..1" />
+    <End Role="TBL_KONTROL" Type="Self.TBL_KONTROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ISLEM">
+        <PropertyRef Name="ISLEM_ID" />
+      </Principal>
+      <Dependent Role="TBL_KONTROL">
+        <PropertyRef Name="ISLEM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HastaneOtomasyonSistemiModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DOKTOR" EntityType="Self.TBL_DOKTOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DOKTOR_UNVAN" EntityType="Self.TBL_DOKTOR_UNVAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_HASTA" EntityType="Self.TBL_HASTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_HASTA_HESAP" EntityType="Self.TBL_HASTA_HESAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ISLEM" EntityType="Self.TBL_ISLEM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_KONTROL" EntityType="Self.TBL_KONTROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_POLİKİNLİK" EntityType="Self.TBL_POLİKİNLİK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_RANDEVU" EntityType="Self.TBL_RANDEVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SEHIR" EntityType="Self.TBL_SEHIR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SEKRETER" EntityType="Self.TBL_SEKRETER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN" Association="Self.FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN">
+      <End Role="TBL_DOKTOR_UNVAN" EntitySet="TBL_DOKTOR_UNVAN" />
+      <End Role="TBL_DOKTOR" EntitySet="TBL_DOKTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_DOKTOR_TBL_POLİKİNLİK" Association="Self.FK_TBL_DOKTOR_TBL_POLİKİNLİK">
+      <End Role="TBL_POLİKİNLİK" EntitySet="TBL_POLİKİNLİK" />
+      <End Role="TBL_DOKTOR" EntitySet="TBL_DOKTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_HASTA_TBL_SEHIR" Association="Self.FK_TBL_HASTA_TBL_SEHIR">
+      <End Role="TBL_SEHIR" EntitySet="TBL_SEHIR" />
+      <End Role="TBL_HASTA" EntitySet="TBL_HASTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_KONTROL_TBL_ISLEM" Association="Self.FK_TBL_KONTROL_TBL_ISLEM">
+      <End Role="TBL_ISLEM" EntitySet="TBL_ISLEM" />
+      <End Role="TBL_KONTROL" EntitySet="TBL_KONTROL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

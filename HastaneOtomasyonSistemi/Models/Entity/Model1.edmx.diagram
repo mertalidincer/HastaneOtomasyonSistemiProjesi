@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1c4cec205d584b7f9a1c04e600d2a0cc" Name="Diagram1">
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_DOKTOR" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_DOKTOR_UNVAN" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_HASTA" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_HASTA_HESAP" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_ISLEM" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_KONTROL" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_POLİKİNLİK" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_RANDEVU" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_SEHIR" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneOtomasyonSistemiModel.TBL_SEKRETER" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="HastaneOtomasyonSistemiModel.FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneOtomasyonSistemiModel.FK_TBL_DOKTOR_TBL_POLİKİNLİK" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneOtomasyonSistemiModel.FK_TBL_HASTA_TBL_SEHIR" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneOtomasyonSistemiModel.FK_TBL_KONTROL_TBL_ISLEM" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

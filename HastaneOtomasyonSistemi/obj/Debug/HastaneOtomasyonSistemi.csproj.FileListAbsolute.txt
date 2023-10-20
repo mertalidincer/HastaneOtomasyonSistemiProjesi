@@ -76,3 +76,7 @@ C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistem
 C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\obj\Debug\HastaneOtomasyonSistemi.csproj.CopyComplete
 C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\obj\Debug\HastaneOtomasyonSistemi.dll
 C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\obj\Debug\HastaneOtomasyonSistemi.pdb
+C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\bin\EntityFramework.dll
+C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\bin\EntityFramework.SqlServer.dll
+C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\bin\EntityFramework.xml
+C:\Users\User\Source\Repos\HastaneOtomasyonSistemiProjesi\HastaneOtomasyonSistemi\bin\EntityFramework.SqlServer.xml

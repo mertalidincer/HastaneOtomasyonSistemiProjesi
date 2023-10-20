@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneOtomasyonSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TBL_DOKTOR">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="AD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SOYAD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="POLIKINLIKID" Type="Int32" Nullable="false" />
+    <Property Name="UNVAN_ID" Type="Int32" />
+    <Property Name="DOKTORHESAP_ID" Type="Int32" />
+    <NavigationProperty Name="TBL_DOKTOR_UNVAN" Relationship="Self.FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN" FromRole="TBL_DOKTOR" ToRole="TBL_DOKTOR_UNVAN" />
+    <NavigationProperty Name="TBL_POLİKİNLİK" Relationship="Self.FK_TBL_DOKTOR_TBL_POLİKİNLİK" FromRole="TBL_DOKTOR" ToRole="TBL_POLİKİNLİK" />
+  </EntityType>
+  <EntityType Name="TBL_DOKTOR_UNVAN">
+    <Key>
+      <PropertyRef Name="UNVAN_ID" />
+    </Key>
+    <Property Name="UNVAN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_DOKTOR" Relationship="Self.FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN" FromRole="TBL_DOKTOR_UNVAN" ToRole="TBL_DOKTOR" />
+  </EntityType>
+  <EntityType Name="TBL_HASTA">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="AD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DT" Type="DateTime" Precision="0" />
+    <Property Name="TELNO" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="SEHIR_ID" Type="Int32" />
+    <Property Name="HASTA_HESAP_ID" Type="Int32" />
+    <NavigationProperty Name="TBL_SEHIR" Relationship="Self.FK_TBL_HASTA_TBL_SEHIR" FromRole="TBL_HASTA" ToRole="TBL_SEHIR" />
+  </EntityType>
+  <EntityType Name="TBL_HASTA_HESAP">
+    <Key>
+      <PropertyRef Name="HASTA_HESAP_ID" />
+    </Key>
+    <Property Name="HASTA_HESAP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KULLANICI_AD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SİFRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBL_ISLEM">
+    <Key>
+      <PropertyRef Name="ISLEM_ID" />
+    </Key>
+    <Property Name="ISLEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_KONTROL" Relationship="Self.FK_TBL_KONTROL_TBL_ISLEM" FromRole="TBL_ISLEM" ToRole="TBL_KONTROL" />
+  </EntityType>
+  <EntityType Name="TBL_KONTROL">
+    <Key>
+      <PropertyRef Name="TETKIK_ID" />
+    </Key>
+    <Property Name="TETKIK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="DOKTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TARIH" Type="DateTime" Precision="0" />
+    <Property Name="ISLEM_ID" Type="Int32" />
+    <Property Name="HASTALIKLAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_ISLEM" Relationship="Self.FK_TBL_KONTROL_TBL_ISLEM" FromRole="TBL_KONTROL" ToRole="TBL_ISLEM" />
+  </EntityType>
+  <EntityType Name="TBL_POLİKİNLİK">
+    <Key>
+      <PropertyRef Name="POLIKINLIK_ID" />
+    </Key>
+    <Property Name="POLIKINLIK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TBL_DOKTOR" Relationship="Self.FK_TBL_DOKTOR_TBL_POLİKİNLİK" FromRole="TBL_POLİKİNLİK" ToRole="TBL_DOKTOR" />
+  </EntityType>
+  <EntityType Name="TBL_RANDEVU">
+    <Key>
+      <PropertyRef Name="RANDEVU_ID" />
+    </Key>
+    <Property Name="RANDEVU_ID" Type="Byte" Nullable="false" />
+    <Property Name="TARIH" Type="DateTime" Precision="3" />
+    <Property Name="SAAT" Type="Time" Precision="7" />
+    <Property Name="POLIKINLIK_ID" Type="Int32" />
+    <Property Name="HASTAHESAP_ID" Type="Int32" />
+    <Property Name="DOKTORHESAP_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TBL_SEHIR">
+    <Key>
+      <PropertyRef Name="SEHIR_ID" />
+    </Key>
+    <Property Name="SEHIR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TBL_HASTA" Relationship="Self.FK_TBL_HASTA_TBL_SEHIR" FromRole="TBL_SEHIR" ToRole="TBL_HASTA" />
+  </EntityType>
+  <EntityType Name="TBL_SEKRETER">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SİFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN">
+    <End Role="TBL_DOKTOR_UNVAN" Type="Self.TBL_DOKTOR_UNVAN" Multiplicity="0..1" />
+    <End Role="TBL_DOKTOR" Type="Self.TBL_DOKTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DOKTOR_UNVAN">
+        <PropertyRef Name="UNVAN_ID" />
+      </Principal>
+      <Dependent Role="TBL_DOKTOR">
+        <PropertyRef Name="UNVAN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_DOKTOR_TBL_POLİKİNLİK">
+    <End Role="TBL_POLİKİNLİK" Type="Self.TBL_POLİKİNLİK" Multiplicity="1" />
+    <End Role="TBL_DOKTOR" Type="Self.TBL_DOKTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_POLİKİNLİK">
+        <PropertyRef Name="POLIKINLIK_ID" />
+      </Principal>
+      <Dependent Role="TBL_DOKTOR">
+        <PropertyRef Name="POLIKINLIKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_HASTA_TBL_SEHIR">
+    <End Role="TBL_SEHIR" Type="Self.TBL_SEHIR" Multiplicity="0..1" />
+    <End Role="TBL_HASTA" Type="Self.TBL_HASTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_SEHIR">
+        <PropertyRef Name="SEHIR_ID" />
+      </Principal>
+      <Dependent Role="TBL_HASTA">
+        <PropertyRef Name="SEHIR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_KONTROL_TBL_ISLEM">
+    <End Role="TBL_ISLEM" Type="Self.TBL_ISLEM" Multiplicity="0..1" />
+    <End Role="TBL_KONTROL" Type="Self.TBL_KONTROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_ISLEM">
+        <PropertyRef Name="ISLEM_ID" />
+      </Principal>
+      <Dependent Role="TBL_KONTROL">
+        <PropertyRef Name="ISLEM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HastaneOtomasyonSistemiEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TBL_DOKTOR" EntityType="Self.TBL_DOKTOR" />
+    <EntitySet Name="TBL_DOKTOR_UNVAN" EntityType="Self.TBL_DOKTOR_UNVAN" />
+    <EntitySet Name="TBL_HASTA" EntityType="Self.TBL_HASTA" />
+    <EntitySet Name="TBL_HASTA_HESAP" EntityType="Self.TBL_HASTA_HESAP" />
+    <EntitySet Name="TBL_ISLEM" EntityType="Self.TBL_ISLEM" />
+    <EntitySet Name="TBL_KONTROL" EntityType="Self.TBL_KONTROL" />
+    <EntitySet Name="TBL_POLİKİNLİK" EntityType="Self.TBL_POLİKİNLİK" />
+    <EntitySet Name="TBL_RANDEVU" EntityType="Self.TBL_RANDEVU" />
+    <EntitySet Name="TBL_SEHIR" EntityType="Self.TBL_SEHIR" />
+    <EntitySet Name="TBL_SEKRETER" EntityType="Self.TBL_SEKRETER" />
+    <AssociationSet Name="FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN" Association="Self.FK_TBL_DOKTOR_TBL_DOKTOR_UNVAN">
+      <End Role="TBL_DOKTOR_UNVAN" EntitySet="TBL_DOKTOR_UNVAN" />
+      <End Role="TBL_DOKTOR" EntitySet="TBL_DOKTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_DOKTOR_TBL_POLİKİNLİK" Association="Self.FK_TBL_DOKTOR_TBL_POLİKİNLİK">
+      <End Role="TBL_POLİKİNLİK" EntitySet="TBL_POLİKİNLİK" />
+      <End Role="TBL_DOKTOR" EntitySet="TBL_DOKTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_HASTA_TBL_SEHIR" Association="Self.FK_TBL_HASTA_TBL_SEHIR">
+      <End Role="TBL_SEHIR" EntitySet="TBL_SEHIR" />
+      <End Role="TBL_HASTA" EntitySet="TBL_HASTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_KONTROL_TBL_ISLEM" Association="Self.FK_TBL_KONTROL_TBL_ISLEM">
+      <End Role="TBL_ISLEM" EntitySet="TBL_ISLEM" />
+      <End Role="TBL_KONTROL" EntitySet="TBL_KONTROL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

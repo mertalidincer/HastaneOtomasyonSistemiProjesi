@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HastaneOtomasyonSistemiModelStoreContainer" CdmEntityContainer="HastaneOtomasyonSistemiEntities1">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DOKTOR">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_DOKTOR">
+        <MappingFragment StoreEntitySet="TBL_DOKTOR">
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="POLIKINLIKID" ColumnName="POLIKINLIKID" />
+          <ScalarProperty Name="UNVAN_ID" ColumnName="UNVAN_ID" />
+          <ScalarProperty Name="DOKTORHESAP_ID" ColumnName="DOKTORHESAP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DOKTOR_UNVAN">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_DOKTOR_UNVAN">
+        <MappingFragment StoreEntitySet="TBL_DOKTOR_UNVAN">
+          <ScalarProperty Name="UNVAN_ID" ColumnName="UNVAN_ID" />
+          <ScalarProperty Name="ISIM" ColumnName="ISIM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_HASTA">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_HASTA">
+        <MappingFragment StoreEntitySet="TBL_HASTA">
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="DT" ColumnName="DT" />
+          <ScalarProperty Name="TELNO" ColumnName="TELNO" />
+          <ScalarProperty Name="SEHIR_ID" ColumnName="SEHIR_ID" />
+          <ScalarProperty Name="HASTA_HESAP_ID" ColumnName="HASTA_HESAP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_HASTA_HESAP">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_HASTA_HESAP">
+        <MappingFragment StoreEntitySet="TBL_HASTA_HESAP">
+          <ScalarProperty Name="HASTA_HESAP_ID" ColumnName="HASTA_HESAP_ID" />
+          <ScalarProperty Name="KULLANICI_AD" ColumnName="KULLANICI_AD" />
+          <ScalarProperty Name="SİFRE" ColumnName="SİFRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ISLEM">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_ISLEM">
+        <MappingFragment StoreEntitySet="TBL_ISLEM">
+          <ScalarProperty Name="ISLEM_ID" ColumnName="ISLEM_ID" />
+          <ScalarProperty Name="ISIM" ColumnName="ISIM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_KONTROL">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_KONTROL">
+        <MappingFragment StoreEntitySet="TBL_KONTROL">
+          <ScalarProperty Name="TETKIK_ID" ColumnName="TETKIK_ID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="DOKTOR" ColumnName="DOKTOR" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="ISLEM_ID" ColumnName="ISLEM_ID" />
+          <ScalarProperty Name="HASTALIKLAR" ColumnName="HASTALIKLAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_POLİKİNLİK">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_POLİKİNLİK">
+        <MappingFragment StoreEntitySet="TBL_POLİKİNLİK">
+          <ScalarProperty Name="POLIKINLIK_ID" ColumnName="POLIKINLIK_ID" />
+          <ScalarProperty Name="ISIM" ColumnName="ISIM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_RANDEVU">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_RANDEVU">
+        <MappingFragment StoreEntitySet="TBL_RANDEVU">
+          <ScalarProperty Name="RANDEVU_ID" ColumnName="RANDEVU_ID" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="SAAT" ColumnName="SAAT" />
+          <ScalarProperty Name="POLIKINLIK_ID" ColumnName="POLIKINLIK_ID" />
+          <ScalarProperty Name="HASTAHESAP_ID" ColumnName="HASTAHESAP_ID" />
+          <ScalarProperty Name="DOKTORHESAP_ID" ColumnName="DOKTORHESAP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SEHIR">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_SEHIR">
+        <MappingFragment StoreEntitySet="TBL_SEHIR">
+          <ScalarProperty Name="SEHIR_ID" ColumnName="SEHIR_ID" />
+          <ScalarProperty Name="ISIM" ColumnName="ISIM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SEKRETER">
+      <EntityTypeMapping TypeName="HastaneOtomasyonSistemiModel.TBL_SEKRETER">
+        <MappingFragment StoreEntitySet="TBL_SEKRETER">
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="SİFRE" ColumnName="SİFRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
