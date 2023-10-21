@@ -43,7 +43,10 @@ namespace HastaneOtomasyonSistemi.Controllers
                 return View("Index");
             }
         }
-
+        public ActionResult DoktorDetay()
+        {
+            return View("DoktorDetay");
+        }
 
     }
 }

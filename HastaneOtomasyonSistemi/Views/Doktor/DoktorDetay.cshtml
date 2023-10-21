@@ -1,18 +1,121 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
+﻿<!DOCTYPE html>
+<html lang="tr">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>DoktorDetay</title>
+    <meta charset="utf-8">
+    <title>Doktor Detay</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Dikey boşluğu kaldırmak için ekledik */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #444, #000);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            height: 150px;
+            width: 150px;
+            margin-left: 20px;
+            border-radius: 50%; /* Yuvarlak logo yapmak için border-radius */
+        }
+
+        .hospital-info {
+            text-align: center;
+            font-size: 18px; /* ATATÜRK ÜNİVERSİTESİ HASTANESİ metni boyutu */
+            margin-top: 5px; /* Metnin alt boşluğu */
+        }
+
+        .doctor-info {
+            text-align: right;
+            margin-top: 10px; /* Doktor bilgisi üst boşluğu */
+        }
+
+        hr {
+            border: 1px solid #fff;
+        }
+
+        .content {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .patient-info {
+            flex: 1;
+            background: #f0f0f0;
+            padding: 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .medical-history {
+            flex: 1;
+            background: #f0f0f0;
+            padding: 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .appointment-list {
+            flex: 1;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div> 
-        <p>fsdfaffadsaf</p>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 logo">
+                    <img src="~/Contents/ataunilogo.png" alt="Atatürk Üniversitesi Logo">
+                </div>
+                <div class="col-md-8 hospital-info" style="margin-top: 50px;">
+                    <h2>Atatürk Üniversite Hastanesi</h2>
+                </div>
+                <div class="col-md-2 doctor-info">
+                    <p style="font-size: 16px; margin-right: 20px;">Doktor: [Doktor Adı Soyadı]</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container content">
+        <div class="patient-info">
+            <h3>Hasta Bilgileri</h3>
+            <!-- Hasta bilgilerini buraya ekleyin -->
+        </div>
+        <div class="medical-history">
+            <h3>Tıbbi Geçmiş</h3>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+            <!-- Tıbbi geçmişi buraya ekleyin -->
+            <div class="medical-history">
+
+                <h3>Tıbbi Geçmiş ekle</h3>
+                <p><strong>Tanı:</strong> [Tanı bilgisi]</p>
+                <p><strong>İlaçlar:</strong> [İlaç bilgisi]</p>
+                <p><strong>Operasyonlar:</strong> [Operasyon bilgisi]</p>
+                <p><strong>Alerjiler:</strong> [Alerji bilgisi]</p>
+                <!-- İlgili tıbbi geçmiş bilgilerini burada ekleyin -->
+            </div>
+
+        
+        <div class="appointment-list">
+            <h3>Randevu Listesi</h3>
+            <!-- Randevu listesini buraya ekleyin -->
+        </div>
     </div>
 </body>
 </html>
