@@ -29,6 +29,12 @@ namespace HastaneOtomasyonSistemi.Controllers
 
             if (reader.Read())
             {
+                string doktorAdi = reader["Ad"].ToString();
+                string doktorSoyadi = reader["Soyad"].ToString();
+
+                Session["DoktorAdi"] = doktorAdi;
+                Session["DoktorSoyadi"] = doktorSoyadi;
+
                 reader.Close();
                 connection.Close();
                 return RedirectToAction("DoktorDetay");
@@ -45,6 +51,7 @@ namespace HastaneOtomasyonSistemi.Controllers
         }
         public ActionResult DoktorDetay()
         {
+
             return View("DoktorDetay");
         }
 

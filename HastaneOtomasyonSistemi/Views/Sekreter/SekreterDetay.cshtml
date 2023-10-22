@@ -1,0 +1,140 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Sekreter Detay</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Dikey boşluğu kaldırmak için ekledik */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .left-panel {
+            flex: 4;
+            padding: 20px;
+            background-color: #808080; /* Koyu gri arka plan rengi ekledik */
+        }
+
+        header {
+            background: linear-gradient(to bottom, #444, #000);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            height: 150px;
+            width: 150px;
+            margin-left: 20px;
+            border-radius: 50%;
+        }
+
+        .header-content {
+            margin-top: 10px;
+        }
+
+        hr {
+            border: 1px solid #fff;
+        }
+
+        .content {
+            padding: 20px;
+            display: flex;
+        }
+
+        .left-panel {
+            flex: 4;
+            padding: 20px;
+        }
+
+        .right-panel {
+            flex: 6;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        .patient-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 logo">
+                    <img src="~/Contents/ataunilogo.png" alt="Atatürk Üniversitesi Logo" class="rounded-image">
+                </div>
+                <div class="col-md-10 header-content">
+                    <h1>Atatürk Üniversitesi Hastanesi</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container content">
+        <div class="left-panel">
+            <h2>Randevu Sorgula</h2>
+            <form id="search-form" method="post" action="@Url.Action("SearchPatient", "Sekreter")">
+                <label for="hasta_adi" class="form-label">Hasta Adı:</label>
+                <input type="text" class="form-control" id="hasta_adi" name="hasta_adi">
+                <label for="hasta_soyadi" class="form-label">Hasta Soyadı:</label>
+                <input type="text" class="form-control" id="hasta_soyadi" name="hasta_soyadi">
+                <label for="tc_kimlik" class="form-label">TC Kimlik Numarası:</label>
+                <input type="text" class="form-control" id="tc_kimlik" name="tc_kimlik">
+                <button type="submit" class="btn btn-primary">Sorgula</button>
+            </form>
+        </div>
+        <div class="right-panel">
+            <h2>Hasta Hakkında</h2>
+            <div class="patient-info">
+                <!-- Hasta bilgileri burada görüntülenecek -->
+            </div>
+            <button type="button" class="btn btn-primary" onclick="redirectDoctor()">Doktora Yönlendir</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectDoctor() {
+            // Doktor sayfasına yönlendirme işlemi burada yapılabilir.
+        }
+    </script>
+</body>
+</html>

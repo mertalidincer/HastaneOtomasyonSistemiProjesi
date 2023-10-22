@@ -81,8 +81,13 @@
                     <h2>Atatürk Üniversite Hastanesi</h2>
                 </div>
                 <div class="col-md-2 doctor-info">
-                    <p style="font-size: 16px; margin-right: 20px;">Doktor: [Doktor Adı Soyadı]</p>
-                </div>
+                    <p style="font-size: 16px; margin-right: 20px;">
+                        @if (Session["DoktorAdi"] != null && Session["DoktorSoyadi"] != null)
+                        {
+                            <p>Doktor: @Session["DoktorAdi"] @Session["DoktorSoyadi"]</p>
+                        }
+                        </p>
+                    </div>
             </div>
         </div>
     </header>
@@ -100,21 +105,13 @@
             <br />
             <br />
         </div>
-            <!-- Tıbbi geçmişi buraya ekleyin -->
             <div class="medical-history">
-
                 <h3>Tıbbi Geçmiş ekle</h3>
-                <p><strong>Tanı:</strong> [Tanı bilgisi]</p>
-                <p><strong>İlaçlar:</strong> [İlaç bilgisi]</p>
-                <p><strong>Operasyonlar:</strong> [Operasyon bilgisi]</p>
-                <p><strong>Alerjiler:</strong> [Alerji bilgisi]</p>
-                <!-- İlgili tıbbi geçmiş bilgilerini burada ekleyin -->
-            </div>
 
-        
+            </div>
         <div class="appointment-list">
             <h3>Randevu Listesi</h3>
-            <!-- Randevu listesini buraya ekleyin -->
+
         </div>
     </div>
 </body>

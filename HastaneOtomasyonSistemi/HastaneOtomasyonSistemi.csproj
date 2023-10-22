@@ -118,6 +118,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\HastaViewModel.cs" />
     <Compile Include="Models\Entity\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,6 +181,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Doktor\index.cshtml" />
     <Content Include="Views\Doktor\DoktorDetay.cshtml" />
+    <Content Include="Views\Sekreter\index.cshtml" />
+    <Content Include="Views\Sekreter\SekreterDetay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,7 +193,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Sekreter\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
