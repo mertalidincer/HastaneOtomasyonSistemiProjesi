@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
         }
+
         .left-panel {
             flex: 4;
             padding: 20px;
@@ -56,12 +57,32 @@
             padding: 20px;
         }
 
-        h2 {
-            font-size: 24px;
+        h1 {
+            font-size: 36px; /* Başlık yazısının boyutunu büyüttük */
         }
 
-        form {
-            margin-top: 20px;
+        h2 {
+            font-size: 24px;
+            text-align: right; /* Başlığı sağa kaydırdık */
+        }
+
+        p.sorgulama-ekrani {
+            font-weight: bold;
+            text-align: center; /* Metni ortaya kaydırdık */
+            margin-top: 10px;
+        }
+
+
+        button#doktora-yonlendir {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 10px;
+            left: calc(50% + 150px); /* Sayfanın yatayda ortasından 10 piksel sağa kaydırır */
+            cursor: pointer;
         }
 
         label {
@@ -75,24 +96,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-
-            button:hover {
-                background-color: #0056b3;
-            }
-
-        .patient-info {
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -104,6 +107,8 @@
                 </div>
                 <div class="col-md-10 header-content">
                     <h1>Atatürk Üniversitesi Hastanesi</h1>
+                    <div class="divider"></div>
+                    <p class="sorgulama-ekrani">Hasta Randevu Sorgulama Ekranı</p>
                 </div>
             </div>
         </div>
@@ -119,22 +124,47 @@
                 <input type="text" class="form-control" id="hasta_soyadi" name="hasta_soyadi">
                 <label for="tc_kimlik" class="form-label">TC Kimlik Numarası:</label>
                 <input type="text" class="form-control" id="tc_kimlik" name="tc_kimlik">
-                <button type="submit" class="btn btn-primary">Sorgula</button>
+                <button type="submit" class="btn btn-primary" style="margin-top: 5px;">Sorgula</button>
             </form>
         </div>
         <div class="right-panel">
-            <h2>Hasta Hakkında</h2>
-            <div class="patient-info">
-                <!-- Hasta bilgileri burada görüntülenecek -->
-            </div>
-            <button type="button" class="btn btn-primary" onclick="redirectDoctor()">Doktora Yönlendir</button>
+            <p class="sorgulama-ekrani" style="text-align: center; margin-top: 0px;">Hasta Bilgileri</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Hasta Adı</th>
+                        <th>Hasta Soyadı</th>
+                        <th>TC Kimlik</th>
+                        <th>Randevu Tarihi</th>
+                        <th>Saat</th>
+                        <th>Poliklinik Adı</th>
+                        <th>Doktor Adı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @model HastaneOtomasyonSistemi.Models.Entity.HastaViewModel
+                    @if (Model != null) // Model boş değilse
+                    {
+                        <tr>
+                            <td>@Model.HastaAd</td>
+                            <td>@Model.HastaSoyad</td>
+                            <td>@Model.TC</td>
+                            <td>@Model.RandevuTarihi</td>
+                            <td>@Model.Saat</td>
+                            <td>@Model.PoliklinikAdi</td>
+                            <td>@Model.DoktorAdi</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">Veri bulunamadı</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id="doktora-yonlendir" style="display: block; margin: 20px auto 20px 0;">Doktora Yönlendir</button>
         </div>
     </div>
-
-    <script>
-        function redirectDoctor() {
-            // Doktor sayfasına yönlendirme işlemi burada yapılabilir.
-        }
-    </script>
 </body>
 </html>

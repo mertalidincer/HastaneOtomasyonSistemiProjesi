@@ -7,10 +7,13 @@ namespace HastaneOtomasyonSistemi.Models.Entity
 {
     public class HastaViewModel
     {
-        public string Ad { get; set; }
-        public string Soyad { get; set; }
-        public string TCKimlikNo { get; set; }
-        
+        public string HastaAd { get; set; }
+        public string HastaSoyad { get; set; }
+        public string TC { get; set; }
+        public string RandevuTarihi { get; set; }
+        public string Saat { get; set; }
+        public string PoliklinikAdi { get; set; }
+        public string DoktorAdi { get; set; }
 
     }
 }

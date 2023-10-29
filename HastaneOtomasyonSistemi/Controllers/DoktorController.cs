@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 namespace HastaneOtomasyonSistemi.Controllers
 {
     public class DoktorController : Controller
@@ -14,7 +13,6 @@ namespace HastaneOtomasyonSistemi.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Login(string tc_numara, string sifre)
         {
@@ -24,17 +22,13 @@ namespace HastaneOtomasyonSistemi.Controllers
             SqlCommand cmd = new SqlCommand(sorgu, connection);
             cmd.Parameters.AddWithValue("@tc_numara", tc_numara);
             cmd.Parameters.AddWithValue("@sifre", sifre);
-
             SqlDataReader reader = cmd.ExecuteReader();
-
             if (reader.Read())
             {
                 string doktorAdi = reader["Ad"].ToString();
                 string doktorSoyadi = reader["Soyad"].ToString();
-
                 Session["DoktorAdi"] = doktorAdi;
                 Session["DoktorSoyadi"] = doktorSoyadi;
-
                 reader.Close();
                 connection.Close();
                 return RedirectToAction("DoktorDetay");
@@ -51,7 +45,6 @@ namespace HastaneOtomasyonSistemi.Controllers
         }
         public ActionResult DoktorDetay()
         {
-
             return View("DoktorDetay");
         }
 
